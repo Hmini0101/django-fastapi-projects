@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Django 블로그 목록</title>
+</head>
+<body>
+    <h1>블로그 게시글 목록</h1>
+    
+    {% for post in posts %}
+        <div style="border: 1px solid #ccc; padding: 10px; margin-bottom: 15px;">
+            <h2>{{ post.title }}</h2>
+            
+            <p>{{ post.content|truncatechars:100 }}</p>
+            
+            <p>
+                <small>작성일: {{ post.created_at }}</small>
+            </p>
+        </div>
+    {% empty %}
+        <p>아직 작성된 게시글이 없습니다.</p>
+    {% endfor %}
+</body>
+</html>
